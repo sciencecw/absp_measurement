@@ -1,0 +1,33 @@
+####
+#
+# 	October: irradiated samples
+#		Sample set #1:
+#		a. 7 Mrad @ 431 krad/h
+#		b. Irradiation stop time: 2016/10/4@3:15:46
+#		1. EJ200-PS-1X1P: 9
+#		2. EJ200-PS-1X2P: 9
+#		3. EJ200-PVT-1X1P: N9
+#		4. EJ200-PVT-1X2P: N9
+#		============================
+#		Sample set #2:
+#		a. 7 Mrad @ 431 krad/h
+#		b. Irradiation stop time: 2016/10/5@3:12:37
+#		1. EJ200-PS-2X1P: 9
+#		2. EJ200-PVT-2X1P: N9
+#		3. EJ260-PS-1X1P: 9
+#		4. EJ260-PVT-1X1P: N9
+#
+####
+####
+#2016,7,12, 'data/EJ_20160714_air2.csv'
+#2016,7,14, 'data/EJ_20160712_air.csv'
+#2016,8,8,  'data/EJ_20160808_air_kak_all.csv'
+#2016,8,10, 'data/EJ_20160810_air_all.csv'
+2016,8,1,  'data/EJ_20160801_air.csv'
+2016,8,3,  'data/EJ_20160803_air.csv'
+2016,10,5, 'data/EJ_20161005_air_all.csv'
+2016,10,10,'data/EJ_20161010_avikak2.csv'
+2016,10,11,'data/EJ_20161011_air.csv'
+2016,10,12,'data/EJ_20161012_kak.csv'
+2016,10,13, 'data/EJ_20161013_kak_air.csv', 'data/EJ_20161013_kakandres.csv'
+2016,10,14, 'data/EJ_20161014_kak_calibtest.csv'

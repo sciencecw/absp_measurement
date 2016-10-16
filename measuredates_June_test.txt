@@ -1,0 +1,20 @@
+####
+#
+# 	EJ200/260-PVT/PS samples; starting from June 2016
+#
+####
+####
+#2016,06,06,'data/EJ_20160606_air.csv'
+#2016,06,10,'data/EJ_20160610_air.csv'
+#2016,06,14,'data/EJ_20160614_air.csv'
+# orientation test
+#2016,06,16,'data/EJ_20160616_air_orientation_ref.csv'
+#2016,06,16,'data/EJ_20160616_air_EJ200PVT-2X1P.csv' ,'data/EJ_20160616_air_EJ260PVT-1X1P.csv'
+#2016,06,16,'data/EJ_20160616_air_EJ260PVT-1X2P.csv', 'data/EJ_20160616_air_EJ260PS-2X1P.csv'
+#2016,06,21,'data/EJ_20160621_air.csv'
+#2016,06,23,'data/EJ_20160623_air.csv'
+#2016,06,23,'data/EJ_20160623_air_oblique.csv'
+#testing results
+2016,06,27,'data/EJ_20160627_air_test1.csv' ,'data/EJ_20160627_air_test.csv'
+#, 'data/EJ_20160627_air_test2.csv'
+#, 'data/EJ_20160627_pvt_test.csv'

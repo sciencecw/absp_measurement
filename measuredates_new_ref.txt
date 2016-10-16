@@ -1,0 +1,28 @@
+####
+#
+# 	For EJ200SP-1P-N2/4 second irradiation samples & cold/warm EJ200-1X samples
+#
+####
+####
+2016,03,23,'data/EJ_20160323_air_ref1.csv'
+2016,03,25,'data/EJ_20160325_air1.csv','data/EJ_20160325_air_SPN4b.csv'
+2016,03,28,'data/EJ_20160328_air_ref.csv','data/EJ_20160328_air_SPN4.csv'
+2016,03,30,'data/EJ_20160330_air_ref.csv', 'data/EJ_20160330_air_SPN4.csv' 
+##, 'data/EJ_20160330_air_ref_UV.csv'
+2016,04,01,'data/EJ_20160401_air_ref.csv', 'data/EJ_20160401_air_SPN4.csv','data/EJ_20160401_air_cold.csv'
+2016,04,04,'data/EJ_20160404_air_ref.csv'
+2016,04,05,'data/EJ_20160405_air.csv','data/EJ_20160405_air_ref.csv', 'data/EJ_20160405_air_ref2.csv'
+##2016,04,05,'data/EJ_20160405_air_all.csv'
+2016,04,07, 'data/EJ_20160407_air_ref.csv'
+##'EJ_20160407_air_all.csv',
+2016,04,11, 'data/EJ_20160411_air_ref.csv'
+2016,04,13, 'data/EJ_20160413_air_ref.csv' 
+2016,04,14, 'data/EJ_20160414_air_ref.csv' , 'data/EJ_20160414_air2.csv' 
+2016,04,15, 'data/EJ_20160415_air_ref.csv' 
+2016,04,18, 'data/EJ_20160418_air_ref.csv' 
+2016,04,21, 'data/EJ_20160421_air_ref.csv' 
+2016,04,25, 'data/EJ_20160425_air_ref.csv' 
+2016,04,29, 'data/EJ_20160429_air.csv' 
+2016,05,02, 'data/EJ_20160502_air_ref.csv'
+#,'data/EJ_20160413_air_all.csv'
+#,'data/.csv'

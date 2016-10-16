@@ -1,0 +1,11 @@
+2016,01,12,'data/EJ_20160112_260-1X1P.csv','data/EJ_20160112_EJ200_EJ260.csv', 'data/EJ_20160112_260-4X4P.csv'
+2016,01,18,'data/EJ_20160118.csv'
+2016,01,29,'data/EJ_20160129.csv'
+2016,02,04,'data/EJ_20160204.csv'
+#'data/EJ_20160204ref.csv' ref only subset
+2016,02,07,'data/EJ_20160207.csv'
+#'data/EJ_20160219_air_ref.csv','data/EJ_20160219_air_ref2.csv','data/EJ_20160219_air.csv','data/EJ_20160219_air_ref3.csv']
+2016,02,19,'data/EJ_20160219_air_ref3.csv'
+2016,02,22,'data/EJ_20160222_air_ref.csv','data/EJ_20160222_air.csv'
+2016,02,29,'data/EJ_20160229_air_ref.csv','data/EJ_20160229_air_castor.csv' 
+2016,03,23,'data/EJ_20160323_air_ref1.csv','data/EJ_20160323_air2.csv'

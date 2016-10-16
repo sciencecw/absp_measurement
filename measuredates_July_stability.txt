@@ -1,0 +1,22 @@
+####
+#
+# 	stability measurement
+#
+####
+####
+2016,7,8,'data/EJ_20160708_air_ref.csv'
+2016,7,11,'data/EJ_20160711_air.csv', 'data/EJ_20160711_air1.csv', 'data/EJ_20160711_air3.csv'
+#2016,7,12,'data/EJ_20160712_air.csv'
+#2016,7,13,'data/EJ_20160713_air.csv'
+#2016,7,14,'data/EJ_20160714_air.csv', 'data/EJ_20160714_air2.csv'
+##2016,7,15,'data/EJ_20160715_air.csv'
+#2016,7,18,'data/EJ_20160718_air.csv'
+#2016,7,19,'data/EJ_20160719_air.csv'
+2016,7,20,'data/EJ_20160720_air.csv','data/EJ_20160720_air2.csv','data/EJ_20160720_air3.csv'
+2016,7,21,'data/EJ_20160721_air.csv'
+2016,7,22,'data/EJ_20160722_air.csv'
+2016,7,25,'data/EJ_20160725_air.csv'
+2016,7,29,'data/EJ_20160729_air.csv'
+2016,8,1,'data/EJ_20160801_air.csv'
+2016,8,2,'data/EJ_20160802_air_EJ260PS-1X2P-11.csv','data/EJ_20160802_air_others.csv'
+2016,8,3,'data/EJ_20160803_air.csv'
