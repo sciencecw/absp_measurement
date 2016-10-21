@@ -19,7 +19,7 @@
 #
 ####
 ####
-#2016,7,12, 'data/EJ_20160714_air2.csv'
+2016,7,12, 'data/EJ_20160714_air2.csv'
 #2016,7,14, 'data/EJ_20160712_air.csv'
 #2016,8,8,  'data/EJ_20160808_air_kak_all.csv'
 #2016,8,10, 'data/EJ_20160810_air_all.csv'
@@ -28,6 +28,8 @@
 2016,10,5, 'data/EJ_20161005_air_all.csv'
 2016,10,10,'data/EJ_20161010_avikak2.csv'
 2016,10,11,'data/EJ_20161011_air.csv'
-2016,10,12,'data/EJ_20161012_kak.csv'
-2016,10,13, 'data/EJ_20161013_kak_air.csv', 'data/EJ_20161013_kakandres.csv'
+#2016,10,12,'data/EJ_20161012_kak.csv'
+#2016,10,13, 'data/EJ_20161013_kak_air.csv', 'data/EJ_20161013_kakandres.csv'
 2016,10,14, 'data/EJ_20161014_kak_calibtest.csv'
+2016,10,18, 'data/EJ_10-18-2016-air_calib.csv'
+2016,10,19, 'data/EJ_20161019-air_calib.csv'

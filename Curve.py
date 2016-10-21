@@ -80,7 +80,7 @@ class Curve:
 		return
 
 	def __repr__(self):
-		return '<'+self.nametag+'>'
+		return '<'+self.nametag+' '+''.join(['_' if d is 0 else 'o' for d in self.data[1:5]])+str(self.__len__())+'>'
 
 	## INPUT CURVE DATA
 	def add(self, number, dcurve):
@@ -203,14 +203,14 @@ class Curve:
 		for i in range(1,5):
 			clr, lbr = Curve.farben[i-1], ' side '+ ' ABCD'[i]
 			if cref.viewt(i) is not 0:
-				ax_main.plot(xx, cref.viewt(i)[s], linewidth = lw1, 
-					color = clr, label = cref.label() + lbr)
+				ax_main.plot(xx[s], cref.viewt(i)[s], linewidth = lw1, 
+					color = clr, label = cref.label() + lbr, linestyle = 'dashed')
 			if c.viewt(i)[s] is not 0:
-				ax_main.plot(xx, c.viewt(i)[s]   , linewidth = lw1, 
-					color = clr, label = c.label()+lbr, linestyle = 'dashed')
-			if cref.viewt(i) is not 0 and c.viewt(i)[s] is not 0:
+				ax_main.plot(xx[s], c.viewt(i)[s]   , linewidth = lw1, 
+					color = clr, label = c.label()+lbr)
+			if cref.viewt(i) is not 0 and c.viewt(i) is not 0:
 				y = c.viewt(i)/cref.viewt(i) -1
-				ax_ratio.plot(xx,y[s], linewidth = lw2,color = Curve.farben[i-1])
+				ax_ratio.plot(xx[s],y[s], linewidth = lw2,color = Curve.farben[i-1])
 			else:
 				print 'ref curve:curve Side', ' ABCD'[i],type(cref.viewt(i)), type(c.viewt(i))
 		Curve.defaultplotting(axis = ax_main ,isShow = False)
@@ -386,9 +386,9 @@ class Curve:
 			ax1.plot([np.nan],[np.nan], label = 'Absp Diff', **kwarg_Diff)
 			ax2.plot(Curve.x[s],self.diff, **kwarg_Diff)
 		ax1.plot(Curve.x[s],self.errcurve(t=t)[s]*10, label = 'Error x10', color = 'cyan')
-		defaultplotting(pyt = ax1, t=t, isShow = False)
+		Curve.defaultplotting(axis = ax1, t=t, isShow = False)
 		ax1.legend(loc = 0)
-		defaultplotting(pyt = ax2, ylabel = 'Diff' if (not t) else 'Ratio-1', isShow = False)
+		Curve.defaultplotting(axis = ax2, ylabel = 'Diff' if (not t) else 'Ratio-1', isShow = False)
 		ax2.set_ylim(ratioyrange)
 		print self.label()
 		if plotting:

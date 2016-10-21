@@ -7,6 +7,7 @@
 
 import numpy as np
 import matplotlib.pyplot as pyt
+from Curve import Curve
 from datetime import date
 from scipy.optimize import curve_fit
 
@@ -112,23 +113,25 @@ class Curve_TimeFit:
 		return x0 , x0err
 
 	@staticmethod
-	def steplocTrsmQuadMem2(c, step = .7, sample = 8):
+	def steplocTrsmQuadMem2(c, step = .5, sample = 4):
 		""" quadratic fit for transmission; plotting separately for each member (side) curves """
 		# same as above but with member curves
-		cdata = c.nonzerodata()
-		x0 = []
-		for ci in cdata:
-			cit = Curve.trsm(ci)
-			try:
-				index = np.argmax(cit<step)
-				s = slice(index-(sample/2), index+(sample/2)) # take data points: default 2 points before and after
-				x1 = Curve_TimeFit.x[s]
-				A = np.vstack([x1**2, x1, np.ones(len(x1))]).T
-				a, b, c  = np.linalg.lstsq(A, cit[s])[0]
-				x0.append((-b+np.sqrt(b**2-4*a*(c-step)))/2/a)
-			except ValueError:
-				print s,x1, c.label()
-				raise
+		x0 = [0,0,0,0]
+		for i in range(1,5):
+			ci = c.data[i]
+			if ci is not 0:
+				cit = Curve.trsm(ci)
+				try:
+					index = np.argmax(cit<step)
+					s = slice(index-(sample/2), index+(sample/2))
+					x1 = Curve_TimeFit.x[s]
+					A = np.vstack([x1**2, x1, np.ones(len(x1))]).T
+					a, b, c0  = np.linalg.lstsq(A, cit[s])[0]
+					x0[i-1] = (-b+np.sqrt(b**2-4*a*(c0-step)))/2/a
+	#				x0.append((-b+np.sqrt(b**2-4*a*(c-step)))/2/a)
+				except ValueError:
+					print s,x1, c.label()
+					raise
 		return x0, 0
 
 	@staticmethod

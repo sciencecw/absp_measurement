@@ -59,7 +59,7 @@ def curveCreation(cdate, filenames):
 	return tempcurve
 
 cdate = date(2016,01,12)
-filenames = ['data/EJ200_EJ260_20160112.csv', 'data/EJ260-4X4P_20160112.csv', 'data/EJ260-1X1P_20160112.csv']
+filenames = ['data/EJ_20160112_EJ200_EJ260.csv', 'data/EJ_20160112_260-4X4P.csv', 'data/EJ_20160112_260-1X1P.csv']
 curves = curveCreation(cdate, filenames)
 cdate = date(2016,01,18)
 filenames = ['data/EJ_20160118.csv']
@@ -92,7 +92,7 @@ def curvesKeyword(icurves, name = None):
 		return icurves
 	return [c for c in icurves if c.hasKeyword(name.split())]
 
-keycurve = curvesKeyword(curves, name = '200 1X') 
+keycurve = curvesKeyword(curves, name = '200 1P') 
 keycN1 = curvesKeyword(keycurve, name = 'N1') 
 keycN2 = curvesKeyword(keycurve, name = 'N2') 
 keycN3 = curvesKeyword(keycurve, name = 'N3') 

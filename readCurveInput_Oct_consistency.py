@@ -6,20 +6,20 @@ side = 1
 print "side : ", side
 
 ## Curves to be read
-allctemp = curveCreation(date(2016,10,14), 
-		['data/EJ_20161014_ameerruhikak.csv'], verbose = 1,skips=2, sepcurve=True)
+#allctemp = curveCreation(date(2016,10,14), 
+#		['data/EJ_20161014_ameerruhikak.csv'], verbose = 1,skips=2, sepcurve=True)
 
-#allctemp = curveCreation(date(2016,10,13), 
-#		['data/EJ_20161013_kakandres.csv', 'data/EJ_20161013_kak_air.csv'], verbose = 1,skips=2)#, sepcurve=True)
+allctemp = curveCreation(date(2016,10,13), 
+		['data/EJ_20161013_kakandres.csv', 'data/EJ_20161013_kak_air.csv'], verbose = 1,skips=2, sepcurve=True)
 #allctemp2 = curveCreation(date(2016,10,10), 
 #		['data/EJ_20161010_avikak2.csv'], verbose = 1,skips=2)#, sepcurve=True)
-#allctemp = [c for c in allctemp if c.view(side, t=True) is not 0]
+allctemp = [c for c in allctemp if c.view(side, t=True) is not 0] # filter for curves with specific side filled
 #allctemp2 = [c for c in allcurves2 if c.view(side, t=True) is not 0]
 keyword = 'EJ200SP-1P-N1'						# read sample
 #allcurves = curvesKeyword(allctemp, name =  keyword ) 
 #print 'kak entries: ', len(allcurves)
-allcurves = curvesKeyword(allctemp, name =  keyword + ' Kak')
-allcurves += curvesKeyword(allctemp, name = keyword + ' Ruhi')
+#allcurves = curvesKeyword(allctemp, name =  keyword + ' Kak')
+allcurves = curvesKeyword(allctemp, name = keyword )
 #allcurves += curvesKeyword(allctemp, name = keyword + ' Ruhi')
 
 
@@ -32,7 +32,7 @@ refcurves[0].add(side, data_cref)			   # ! Brute Force
 #refcurves = allcurves
 titleGen = r"refkeyword+' '+tLabel +' Spectrum Side ' + ' ABCD'[side]"
 
-if False:
+if True:
 	def avg_gen(c): 
 		# local shorthand
 		try:	
@@ -46,7 +46,7 @@ if False:
 		raise
 #fig.savefig('plots/stability_July2016/'+refkeyword+'stability_side'+' ABCD'[side]+ '.pdf')
 
-farben = ['lightgray']+['gray']*5 
+farben = ['lightgray']#+['gray']*5 
 farben += ['blue', 'darkblue','darkslateblue','royalblue', 'darkblue','royalblue', 'darkblue']
 farben +=  ['red','darkred', 'crimson', 'orangered','salmon'] 
 #farben += ['gray']*3+['red','magenta','blueviolet']
@@ -71,7 +71,7 @@ legFont = 10				# legend font size
 							# with the tag "-i"
 isOrigLabel = True			# choose to print original label
 lwidth = 1. 					# default line width
-
+#pyt.ion()					#interactive !!
 
 #cLabel = [None]* 3 +['07/12', '07/13'] +[None]*3 +['07/18']*3 +  [None]*2 + ['07/20']*3  + [None]*2  
 
