@@ -19,11 +19,12 @@ class Curve_TimeFit:
 		days, pvalue, evalue = [],[],[]
 		for c in keyc:
 			try:
+				x0, x0err = fx(c)
 				if errbar:
-					x0, x0err = fx(c)
+				#	x0, x0err = fx(c)
 					evalue.append(x0err)
-				else:
-					x0 = fx(c)
+				#else:
+				#	x0 = fx(c)
 			except ValueError as inst:
 				# in the case no value is properly output here
 				print inst.args
@@ -166,3 +167,30 @@ class Curve_TimeFit:
 		pyt.grid(True)
 		pyt.show()
 		return
+
+	@staticmethod
+	def normalize(c, s, xlen = 400):
+		intgl, xsum= 0, 0
+		xnum = s.indices(xlen)[1]-s.indices(xlen)[0] # length of input curve = 400nm
+		for i in range(1,5):
+			if c.data[i] is not 0:
+				intgl += c.data[i][s].sum()
+				xsum += xnum
+		cnew = c.clone()
+		for i in range(1,5):
+			if cnew.data[i] is not 0:
+				cnew.data[i]*=xsum/intgl
+		return cnew
+
+	@staticmethod
+	def normalize2(c, s, xlen = 400,factor=1.):
+		# individual sides are normalized seperately
+		xnum = s.indices(xlen)[1]-s.indices(xlen)[0] # length of input curve = 400nm
+		cnew = c.clone()
+		for i in range(1,5):
+			if c.data[i] is not 0:
+				intgl = c.data[i][s].sum()
+				cnew.data[i]*=xnum/intgl*factor
+		return cnew
+
+

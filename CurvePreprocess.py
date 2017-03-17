@@ -11,7 +11,7 @@ for filename in sys.argv[1:]:
 	wf.write(line.rstrip(',\r\n') + ',\r\n')
 	while True:
 		line = f.readline()
-		if line == "\r\n":
+		if not line.rstrip(',\r\n'):
 			break
 		wf.write(line.rstrip(',\r\n') + '\r\n')
 	f.close()

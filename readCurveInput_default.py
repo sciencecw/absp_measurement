@@ -28,7 +28,7 @@ shr = dict(height_ratios = [3,2])		#subplot height ratio
 figsize = (10,10)
 newdate = False
 isFirstLast = False 		# choose only first or last curve
-legFont = 10				# legend font size
+leg_kwarg = dict(loc = 0, fontsize = 10) # legend default settings
 lwidth = 1 					# default line width
 isBlocked = False			# Blocks interaction: if false the program should be run
 							# with the tag "-i"
@@ -46,7 +46,8 @@ if newdate:
 	dateN4 = date(2016,03,25)
 dateCT = date(2015,11,3) # inaccurate
 
-Curve.irrdates = Curve.readIrrDate('irraddates.txt')
+#Curve.irrdates = Curve.readIrrDate('irraddates.txt')
+Curve.readIrrDate('irraddates.txt')
 def avg_gen(c):
 	# local shorthand
 	return c.avgcurve(t=t)[s]

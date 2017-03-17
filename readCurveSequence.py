@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as pyt
 from datetime import date
+import sys
 
 ## readCurveSequence.py
 ## Created: 05Apr2016
@@ -15,12 +16,17 @@ from Curve import (Curve, curvesKeyword, curveCreation,
 x= np.linspace(600,200,401)
 
 
+print sys.argv 
 
-#allcurves = curveCreation(date(2016,10,5), 		['data/EJ_20161005_air_all.csv'], verbose = 1,skips=1)
-#allcurves = curveCreation(date(2016,10,11), 	['data/EJ_20161011_air.csv'], verbose = 1,skips=1)
-#allcurves = curveCreation(date(2016,8,1), ['data/EJ_20160801_air.csv'], verbose = 1,skips=1)
-#
-allcurves = readCurveFile('measuredates_Oct.txt', verbose = 1, skips = 1)
+if len(sys.argv)>1:
+	allcurves = curveCreation(date.today(),sys.argv[1:2],skips=3)
+else:
+	#allcurves = curveCreation(date(2016,10,5), 		['data/EJ_20161005_air_all.csv'], verbose = 1,skips=1)
+	#allcurves = curveCreation(date(2016,10,11), 	['data/EJ_20161011_air.csv'], verbose = 1,skips=1)
+	allcurves = curveCreation(date(2016,11,1), ['data/EJ_20161101_air_calib.csv','data/EJ_20161101_air_calib2.csv', 'data/EJ_20161101_air.csv'], verbose = 1,skips=1)
+	#
+	#allcurves = readCurveFile('measuredates_Oct.txt', verbose = 1, skips = 1)
+
 
 farben = ['blue', 'green', 'darkcyan','red' ,'magenta','blueviolet', 'slategray','magenta']
 farben += ['hotpink', 'salmon','springgreen','chocolate', 'crimson']
@@ -30,7 +36,7 @@ mode = 2
 # 0: plot average 1: plot all member curves
 # 2: all memeber curves with comparison
 # 3: all memeber curves with Diff
-keyword = 'EJ200SP-1P-N1' #'1X1P N1'						# read sample
+keyword = '' #'EJ200SP-1P-N1' #'1X1P N1'						# read sample
 #keyword2 = '1X1P N6'						# read sample
 s = Curve.makeslice(300,600)		# x-range (band of wavelength in nm)
 t = True					# transmission or absorption curve; None for absorption

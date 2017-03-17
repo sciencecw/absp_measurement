@@ -11,14 +11,18 @@ import matplotlib.pyplot as pyt
 from datetime import date
 import sys
 from Curve import (Curve, curvesKeyword, curveCreation, keycGen,
-					specPlotter,curvesAge, curvesRef, readCurveFile)
+					specPlotter,curvesAge, curvesDate, curvesRef, readCurveFile)
+import Curve_TimeFit
+ctf = Curve_TimeFit.Curve_TimeFit
 
 
 execfile('readCurveInput_default.py') # loads default setting
-#execfile('readCurveInput_260PVTDiff.py')
-#execfile('readCurveInput_0708test.py')
-execfile('readCurveInput_Oct_Normal.py')	
-#execfile('readCurveInput_Oct_consistency.py')	# for checking new undergrad performance
+#execfile('readCurveInput_Oct_Normal.py')
+#execfile('readCurveInput_Nov_varied_thickness.py')
+#execfile('readCurveInput_Nov16Calib.py')	
+execfile('readCurveInput_Mar17test.py')
+
+#execfile('readCurveInput_Oct_consistency.py')	# for checking new operators consistency
 #execfile('readCurveInput_July_consistency.py') # test consistency of doubly measured curves 
 #execfile('readCurveInput_coldwarm_comp.py')
 #execfile('readCurveInput_Normal.py')
@@ -30,6 +34,7 @@ refc = curvesKeyword(refcurves, name = refkeyword)
 cref = refc[refnum]
 fig, (ax1, ax2) = pyt.subplots(2,1, sharex=True, gridspec_kw=shr,figsize = (8,8))
 
+#curvesDate(allc,(2016,10,12))[0].shift(-0.3909)
 
 ## TITLES and labels
 if baseline: t , df, tLabel = False, False, 'Transmission'
@@ -49,15 +54,15 @@ if showRef:
 	lbl = 'Reference ' + cref.nametag if isOrigLabel else itercLabel.next()
 	ax1.plot(x[s],avg_gen(cref), label = lbl,
 			 color = iterfarb.next(),linewidth = 1.8, linestyle = ls)
-#avgpcterr = np.abs(cref.errcurve(t=t))/cref.avgcurve(t=t)
-avgpcterr = np.abs(allc[0].errcurve(t=t))/ allc[0].avgcurve(t=t)
+avgpcterr = np.abs(cref.errcurve(t=t))/cref.avgcurve(t=t)
+#avgpcterr = np.abs(allc[0].errcurve(t=t))/ allc[0].avgcurve(t=t)
 if (not t) and df: 
 	# to show diff in absp plots
 	#avgpcterr = np.abs(sum([c.errcurve(t=t) for c in allc]))/len(allc)
 	avgpcterr = np.abs(c.errcurve(t=t))
-if not baseline:
+if showErr and not baseline:
 	# error curves
-	ax1.plot(x[s],allc[0].errcurve(t=t)[s]*10, label = 'Error x10', color = 'cyan')
+	ax1.plot(x[s],allc[0].errcurve(t=t)[s]*10, label = 'side variation x10', color = 'cyan')
 	ax2.fill_between(x[s],-avgpcterr[s],avgpcterr[s], label = 'err', alpha = .3) #default .2
 	
 
@@ -85,7 +90,7 @@ else:
 						color = iterfarb2.next(), label = lbl_gen(c), linestyle = ls)
 
 ax1.grid(True)
-ax1.legend(loc = 0, fontsize = legFont)
+ax1.legend(**leg_kwarg) #loc = legloc, fontsize = legFont)
 ax1.set_xlabel('Wavelength nm')
 ax1.set_ylabel(tLabel)
 if t:
